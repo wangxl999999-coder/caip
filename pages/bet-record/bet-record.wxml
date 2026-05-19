@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <view class="record-card" wx:for="{{records}}" wx:key="id">
+      <view class="record-header">
+        <text class="order-no">{{item.orderNo}}</text>
+        <text class="status">{{item.status === 'pending' ? '待开奖' : '已开奖'}}</text>
+      </view>
+      <view class="record-balls">
+        <view class="ball-red" wx:for="{{item.numbers.red}}" wx:key="index">{{item < 10 ? '0' + item : item}}</view>
+        <view class="ball-blue">{{item.numbers.blue < 10 ? '0' + item.numbers.blue : item.numbers.blue}}</view>
+      </view>
+      <view class="record-info">
+        <view class="info-item">
+          <text>倍数：{{item.multiple}}</text>
+          <text>注数：{{item.betCount}}</text>
+        </view>
+        <view class="info-item">
+          <text>金额：¥{{item.amount}}</text>
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    <view class="empty-icon"></view>
+    <text>暂无投注记录</text>
+    <button class="btn-primary" bindtap="goToBet">立即投注</button>
+  </view>
+</view>

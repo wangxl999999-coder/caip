@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="station-list">
+    <view class="station-card" wx:for="{{stations}}" wx:key="id">
+      <view class="station-name">{{item.name}}</view>
+      <view class="station-address">{{item.address}}</view>
+      <view class="station-info">
+        <view class="info-item">
+          <view class="info-icon phone-icon"></view>
+          <text>{{item.phone}}</text>
+        </view>
+        <view class="info-item">
+          <view class="info-icon distance-icon"></view>
+          <text>{{item.distance}}</text>
+        </view>
+      </view>
+      <view class="station-actions">
+        <button class="action-btn" bindtap="callPhone" data-phone="{{item.phone}}">电话</button>
+        <button class="action-btn primary" bindtap="navigateTo" data-address="{{item.address}}">导航</button>
+      </view>
+    </view>
+  </view>
+</view>

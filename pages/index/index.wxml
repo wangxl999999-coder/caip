@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="banner">
+    <view class="banner-title">欢迎使用彩票小程序</view>
+    <view class="banner-desc">幸运触手可及</view>
+  </view>
+
+  <view class="card latest-result">
+    <view class="section-header">
+      <text class="title">最新开奖</text>
+      <text class="more" bindtap="goToResult">查看更多 ></text>
+    </view>
+    <view class="result-info" wx:if="{{latestResult}}">
+      <view class="issue">第{{latestResult.issue}}期</view>
+      <view class="date">{{latestResult.date}}</view>
+      <view class="balls">
+        <view class="ball-red" wx:for="{{latestResult.numbers.red}}" wx:key="index">{{item}}</view>
+        <view class="ball-blue">{{latestResult.numbers.blue}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="quick-actions">
+    <view class="action-item" bindtap="goToBet">
+      <view class="action-icon bet-icon"></view>
+      <text>立即投注</text>
+    </view>
+    <view class="action-item" bindtap="goToCheck">
+      <view class="action-icon check-icon"></view>
+      <text>中奖查询</text>
+    </view>
+    <view class="action-item" bindtap="goToTrend">
+      <view class="action-icon trend-icon"></view>
+      <text>走势图表</text>
+    </view>
+    <view class="action-item" bindtap="goToStation">
+      <view class="action-icon station-icon"></view>
+      <text>投注站点</text>
+    </view>
+  </view>
+
+  <view class="card station-list">
+    <view class="section-header">
+      <text class="title">附近投注站</text>
+      <text class="more" bindtap="goToStation">查看全部 ></text>
+    </view>
+    <view class="station-item" wx:for="{{nearbyStations}}" wx:key="id" bindtap="viewStationDetail" data-id="{{item.id}}">
+      <view class="station-info">
+        <view class="station-name">{{item.name}}</view>
+        <view class="station-address">{{item.address}}</view>
+      </view>
+      <view class="station-distance">{{item.distance}}</view>
+    </view>
+  </view>
+</view>

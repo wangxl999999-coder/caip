@@ -1,0 +1,81 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">中奖查询</view>
+    <view class="query-tabs">
+      <view class="tab {{queryType === 'order' ? 'active' : ''}}" bindtap="switchQueryType" data-type="order">按订单号</view>
+      <view class="tab {{queryType === 'scan' ? 'active' : ''}}" bindtap="switchQueryType" data-type="scan">扫码查询</view>
+    </view>
+
+    <view class="query-form" wx:if="{{queryType === 'order'}}">
+      <input class="query-input" placeholder="请输入投注单号" value="{{orderNo}}" bindinput="onInputChange" />
+      <button class="btn-primary" bindtap="queryResult">查询</button>
+    </view>
+
+    <view class="query-form" wx:if="{{queryType === 'scan'}}">
+      <view class="scan-area" bindtap="scanCode">
+        <view class="scan-icon"></view>
+        <text>点击扫描条形码</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card result-card" wx:if="{{queryResult}}">
+    <view class="result-header">
+      <text class="result-title">查询结果</text>
+      <text class="result-status {{queryResult.isWin ? 'win' : 'lose'}}">{{queryResult.isWin ? '恭喜中奖' : '未中奖'}}</text>
+    </view>
+    
+    <view class="result-info">
+      <view class="info-item">
+        <text class="label">订单号：</text>
+        <text class="value">{{queryResult.orderNo}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">投注号码：</text>
+        <view class="balls">
+          <view class="ball-red" wx:for="{{queryResult.numbers.red}}" wx:key="index">{{item < 10 ? '0' + item : item}}</view>
+          <view class="ball-blue">{{queryResult.numbers.blue < 10 ? '0' + queryResult.numbers.blue : queryResult.numbers.blue}}</view>
+        </view>
+      </view>
+      <view class="info-item" wx:if="{{queryResult.isWin}}">
+        <text class="label">中奖等级：</text>
+        <text class="value text-red">{{queryResult.level}}等奖</text>
+      </view>
+      <view class="info-item" wx:if="{{queryResult.isWin}}">
+        <text class="label">中奖金额：</text>
+        <text class="value text-red">¥{{queryResult.prize}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">开奖号码：</text>
+        <view class="balls">
+          <view class="ball-red" wx:for="{{queryResult.resultNumbers.red}}" wx:key="index">{{item < 10 ? '0' + item : item}}</view>
+          <view class="ball-blue">{{queryResult.resultNumbers.blue < 10 ? '0' + queryResult.resultNumbers.blue : queryResult.resultNumbers.blue}}</view>
+        </view>
+      </view>
+      <view class="info-item">
+        <text class="label">红球命中：</text>
+        <text class="value">{{queryResult.redMatch}}个</text>
+      </view>
+      <view class="info-item">
+        <text class="label">蓝球命中：</text>
+        <text class="value">{{queryResult.blueMatch}}个</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card history-card">
+    <view class="section-title">查询记录</view>
+    <view class="history-list" wx:if="{{checkRecords.length > 0}}">
+      <view class="history-item" wx:for="{{checkRecords}}" wx:key="id">
+        <view class="history-order">{{item.orderNo}}</view>
+        <view class="history-info">
+          <text class="{{item.isWin ? 'win' : 'lose'}}">{{item.isWin ? '中¥' + item.prize : '未中奖'}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="empty" wx:else>
+      <text>暂无查询记录</text>
+    </view>
+  </view>
+</view>

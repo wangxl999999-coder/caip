@@ -1,0 +1,113 @@
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+.ball-section {
+  margin-bottom: 40rpx;
+}
+
+.ball-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.balls-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.balls-container .ball-red,
+.balls-container .ball-blue,
+.balls-container .ball-gray {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.selected-balls {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+  min-height: 70rpx;
+}
+
+.selected-count {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+}
+
+.bet-setting {
+  padding: 20rpx 0;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item.total {
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+}
+
+.stepper-btn {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #f0f0f0;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  color: #666;
+}
+
+.stepper-value {
+  width: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 30rpx;
+  padding-bottom: 40rpx;
+}
+
+.action-buttons button {
+  flex: 1;
+  margin: 0;
+}
+
+.btn-primary[disabled] {
+  background: #ccc;
+}

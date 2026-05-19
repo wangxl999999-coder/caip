@@ -1,0 +1,144 @@
+.user-card {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-radius: 20rpx;
+  padding: 50rpx 40rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  margin-right: 30rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.login-icon {
+  width: 60rpx;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.user-info {
+  flex: 1;
+  color: #fff;
+}
+
+.username {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.user-desc {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+.menu-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 12rpx;
+  margin-right: 24rpx;
+}
+
+.record-icon {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.win-icon {
+  background: linear-gradient(135deg, #f39c12, #d68910);
+}
+
+.service-icon {
+  background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+.about-icon {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.arrow {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 2rpx solid #ccc;
+  border-right: 2rpx solid #ccc;
+  transform: rotate(45deg);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30rpx;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 30rpx;
+  background: #f5f5f5;
+  border-radius: 12rpx;
+}
+
+.stat-number {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 10rpx;
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.logout-btn {
+  margin-top: 40rpx;
+  background: #fff;
+  color: #e74c3c;
+  border: 1rpx solid #e74c3c;
+  border-radius: 50rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+}

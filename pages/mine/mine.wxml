@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="user-card">
+    <view class="avatar" wx:if="{{isLogin}}">
+      <image src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+    </view>
+    <view class="avatar" wx:else bindtap="goToLogin">
+      <view class="login-icon"></view>
+    </view>
+    <view class="user-info">
+      <view class="username" wx:if="{{isLogin}}">{{userInfo.nickName || '彩票用户'}}</view>
+      <view class="username" wx:else bindtap="goToLogin">点击登录</view>
+      <view class="user-desc" wx:if="{{isLogin}}">欢迎回来</view>
+      <view class="user-desc" wx:else>登录后可查看投注记录</view>
+    </view>
+  </view>
+
+  <view class="card menu-card">
+    <view class="menu-item" bindtap="goToBetRecord">
+      <view class="menu-icon record-icon"></view>
+      <text class="menu-text">投注记录</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="menu-item" bindtap="goToWinRecord">
+      <view class="menu-icon win-icon"></view>
+      <text class="menu-text">中奖记录</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="menu-item" bindtap="contactService">
+      <view class="menu-icon service-icon"></view>
+      <text class="menu-text">在线客服</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="menu-item" bindtap="aboutUs">
+      <view class="menu-icon about-icon"></view>
+      <text class="menu-text">关于我们</text>
+      <view class="arrow"></view>
+    </view>
+  </view>
+
+  <view class="card stats-card" wx:if="{{isLogin}}">
+    <view class="section-title">我的数据</view>
+    <view class="stats-grid">
+      <view class="stat-item">
+        <view class="stat-number">{{stats.totalBets}}</view>
+        <view class="stat-label">总投注</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-number">{{stats.totalAmount}}</view>
+        <view class="stat-label">投注金额</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-number">{{stats.winCount}}</view>
+        <view class="stat-label">中奖次数</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-number">{{stats.totalPrize}}</view>
+        <view class="stat-label">累计奖金</view>
+      </view>
+    </view>
+  </view>
+
+  <button class="logout-btn" wx:if="{{isLogin}}" bindtap="logout">退出登录</button>
+</view>

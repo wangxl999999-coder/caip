@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="card latest-card">
+    <view class="latest-header">
+      <view class="latest-issue">第{{latestResult.issue}}期</view>
+      <view class="latest-date">{{latestResult.date}}</view>
+    </view>
+    <view class="latest-balls">
+      <view class="ball-red" wx:for="{{latestResult.numbers.red}}" wx:key="index">{{item < 10 ? '0' + item : item}}</view>
+      <view class="ball-blue">{{latestResult.numbers.blue < 10 ? '0' + latestResult.numbers.blue : latestResult.numbers.blue}}</view>
+    </view>
+    <view class="latest-stats">
+      <view class="stat-item">
+        <text class="stat-label">销售额</text>
+        <text class="stat-value">¥{{latestResult.sales}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-label">奖池金额</text>
+        <text class="stat-value">¥{{latestResult.pool}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card history-card">
+    <view class="section-title">历史开奖</view>
+    <view class="history-list">
+      <view class="history-item" wx:for="{{historyList}}" wx:key="id">
+        <view class="history-header">
+          <text class="issue">第{{item.issue}}期</text>
+          <text class="date">{{item.date}}</text>
+        </view>
+        <view class="history-balls">
+          <view class="ball-red" wx:for="{{item.numbers.red}}" wx:key="index" wx:for-item="ball">{{ball < 10 ? '0' + ball : ball}}</view>
+          <view class="ball-blue">{{item.numbers.blue < 10 ? '0' + item.numbers.blue : item.numbers.blue}}</view>
+        </view>
+        <view class="history-stats">
+          <text>和值: {{item.sum}}</text>
+          <text>跨度: {{item.span}}</text>
+          <text>奇偶: {{item.oddEven}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

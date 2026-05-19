@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <view class="record-card" wx:for="{{records}}" wx:key="id">
+      <view class="record-header">
+        <text class="order-no">{{item.orderNo}}</text>
+        <text class="prize">¥{{item.prize}}</text>
+      </view>
+      <view class="record-info">
+        <text class="time">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    <view class="empty-icon"></view>
+    <text>暂无中奖记录</text>
+    <button class="btn-primary" bindtap="goToBet">立即投注</button>
+  </view>
+</view>

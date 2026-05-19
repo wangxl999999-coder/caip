@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="card">
+    <view class="tabs">
+      <view class="tab {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">基本走势</view>
+      <view class="tab {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">奇偶走势</view>
+      <view class="tab {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">和值走势</view>
+    </view>
+  </view>
+
+  <scroll-view scroll-x class="trend-scroll">
+    <view class="trend-table">
+      <view class="table-header">
+        <view class="header-cell issue">期号</view>
+        <view class="header-cell" wx:for="{{33}}" wx:key="index">{{item + 1 < 10 ? '0' + (item + 1) : item + 1}}</view>
+        <view class="header-cell sum">和值</view>
+        <view class="header-cell span">跨度</view>
+        <view class="header-cell odd-even">奇偶</view>
+      </view>
+      <view class="table-body">
+        <view class="table-row" wx:for="{{trendData}}" wx:key="id">
+          <view class="cell issue">{{item.issue.slice(-6)}}</view>
+          <view class="cell {{item.numbers.red.includes(index + 1) ? 'red-ball' : ''}}" wx:for="{{33}}" wx:key="index">
+            {{item.numbers.red.includes(index + 1) ? (index + 1 < 10 ? '0' + (index + 1) : index + 1) : ''}}
+          </view>
+          <view class="cell sum">{{item.sum}}</view>
+          <view class="cell span">{{item.span}}</view>
+          <view class="cell odd-even">{{item.oddEven}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="card stats-card">
+    <view class="section-title">号码统计</view>
+    <view class="stats-section">
+      <view class="stats-label">红球出现次数 (最近10期)</view>
+      <view class="stats-balls">
+        <view class="stat-ball" wx:for="{{redStats}}" wx:key="num">
+          <view class="ball {{num < 10 ? 'ball-gray' : 'ball-gray'}}">{{num < 10 ? '0' + num : num}}</view>
+          <view class="stat-count">{{count}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="stats-section">
+      <view class="stats-label">蓝球出现次数 (最近10期)</view>
+      <view class="stats-balls">
+        <view class="stat-ball" wx:for="{{blueStats}}" wx:key="num">
+          <view class="ball ball-gray">{{num < 10 ? '0' + num : num}}</view>
+          <view class="stat-count">{{count}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">选择号码</view>
+    <view class="tip">红球(选6个) | 蓝球(选1个)</view>
+    
+    <view class="ball-section">
+      <view class="section-label">红球区 (01-33)</view>
+      <view class="balls-container">
+        <view 
+          class="{{selectedRed.includes(item) ? 'ball-red' : 'ball-gray'}}" 
+          wx:for="{{redBalls}}" 
+          wx:key="index"
+          bindtap="toggleRedBall"
+          data-num="{{item}}"
+        >{{item < 10 ? '0' + item : item}}</view>
+      </view>
+    </view>
+
+    <view class="ball-section">
+      <view class="section-label">蓝球区 (01-16)</view>
+      <view class="balls-container">
+        <view 
+          class="{{selectedBlue === item ? 'ball-blue' : 'ball-gray'}}" 
+          wx:for="{{blueBalls}}" 
+          wx:key="index"
+          bindtap="toggleBlueBall"
+          data-num="{{item}}"
+        >{{item < 10 ? '0' + item : item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">已选号码</view>
+    <view class="selected-balls">
+      <view class="ball-red" wx:for="{{selectedRed}}" wx:key="index">{{item < 10 ? '0' + item : item}}</view>
+      <view class="ball-blue" wx:if="{{selectedBlue}}">{{selectedBlue < 10 ? '0' + selectedBlue : selectedBlue}}</view>
+    </view>
+    <view class="selected-count">已选红球{{selectedRed.length}}个，蓝球{{selectedBlue ? 1 : 0}}个</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">投注设置</view>
+    <view class="bet-setting">
+      <view class="setting-item">
+        <text>投注倍数</text>
+        <view class="stepper">
+          <view class="stepper-btn" bindtap="decreaseMultiple">-</view>
+          <view class="stepper-value">{{multiple}}</view>
+          <view class="stepper-btn" bindtap="increaseMultiple">+</view>
+        </view>
+      </view>
+      <view class="setting-item">
+        <text>注数</text>
+        <text class="text-red">{{betCount}}注</text>
+      </view>
+      <view class="setting-item total">
+        <text>投注金额</text>
+        <text class="text-red">¥{{totalAmount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn-secondary" bindtap="randomSelect">机选号码</button>
+    <button class="btn-primary" bindtap="confirmBet" disabled="{{!canBet}}">确认投注</button>
+  </view>
+</view>

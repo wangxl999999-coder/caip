@@ -1,0 +1,92 @@
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 0 60rpx;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-radius: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.app-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-section {
+  padding: 0 40rpx;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  margin-bottom: 20rpx;
+}
+
+.form-input {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+.code-btn {
+  width: 180rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 35rpx;
+  margin: 0;
+  padding: 0;
+}
+
+.code-btn[disabled] {
+  background: #ccc;
+}
+
+.login-btn {
+  margin-top: 60rpx;
+}
+
+.wechat-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  padding: 20rpx;
+}
+
+.wechat-icon {
+  width: 40rpx;
+  height: 40rpx;
+  background: #07c160;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.wechat-login text {
+  font-size: 28rpx;
+  color: #07c160;
+}
+
+.agreement {
+  position: absolute;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.agreement .link {
+  color: #e74c3c;
+}

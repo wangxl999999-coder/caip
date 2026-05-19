@@ -1,0 +1,164 @@
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.query-tabs {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 12rpx;
+  padding: 8rpx;
+  margin-bottom: 30rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 8rpx;
+  transition: all 0.3s;
+}
+
+.tab.active {
+  background: #fff;
+  color: #e74c3c;
+  font-weight: bold;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.query-input {
+  width: 100%;
+  height: 88rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.scan-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300rpx;
+  border: 2rpx dashed #e0e0e0;
+  border-radius: 12rpx;
+  background: #fafafa;
+}
+
+.scan-icon {
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+}
+
+.scan-area text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.result-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.result-status {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.result-status.win {
+  color: #e74c3c;
+}
+
+.result-status.lose {
+  color: #999;
+}
+
+.result-info .info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.result-info .label {
+  font-size: 28rpx;
+  color: #666;
+  width: 150rpx;
+  flex-shrink: 0;
+}
+
+.result-info .value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.result-info .balls {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-order {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.history-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.history-info .win {
+  font-size: 28rpx;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.history-info .lose {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.history-info .time {
+  font-size: 22rpx;
+  color: #ccc;
+  margin-top: 8rpx;
+}
+
+.empty {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
