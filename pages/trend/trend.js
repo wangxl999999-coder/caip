@@ -12,6 +12,10 @@ Page({
     this.loadTrendData()
   },
 
+  onShow() {
+    this.loadTrendData()
+  },
+
   switchTab(e) {
     const index = e.currentTarget.dataset.index
     this.setData({
@@ -20,7 +24,14 @@ Page({
   },
 
   loadTrendData() {
-    const results = wx.getStorageSync('lotteryResults') || []
+    let results = wx.getStorageSync('lotteryResults') || []
+    
+    if (results.length === 0) {
+      const app = getApp()
+      app.generateMockResults()
+      results = wx.getStorageSync('lotteryResults') || []
+    }
+
     const trendData = results.slice(0, 10).map(item => ({
       ...item,
       sum: util.calculateSum(item.numbers.red),
@@ -45,15 +56,19 @@ Page({
       blueCounts[item.numbers.blue]++
     })
 
-    const redStats = Object.entries(redCounts).map(([num, count]) => ({
-      num: parseInt(num),
-      count
-    }))
+    const redStats = Object.entries(redCounts)
+      .map(([num, count]) => ({
+        num: parseInt(num),
+        count
+      }))
+      .sort((a, b) => b.count - a.count)
 
-    const blueStats = Object.entries(blueCounts).map(([num, count]) => ({
-      num: parseInt(num),
-      count
-    }))
+    const blueStats = Object.entries(blueCounts)
+      .map(([num, count]) => ({
+        num: parseInt(num),
+        count
+      }))
+      .sort((a, b) => b.count - a.count)
 
     this.setData({
       trendData,

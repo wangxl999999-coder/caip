@@ -36,8 +36,8 @@
       <view class="stats-label">红球出现次数 (最近10期)</view>
       <view class="stats-balls">
         <view class="stat-ball" wx:for="{{redStats}}" wx:key="num">
-          <view class="ball {{num < 10 ? 'ball-gray' : 'ball-gray'}}">{{num < 10 ? '0' + num : num}}</view>
-          <view class="stat-count">{{count}}</view>
+          <view class="ball ball-red">{{item.num < 10 ? '0' + item.num : item.num}}</view>
+          <view class="stat-count">{{item.count}}</view>
         </view>
       </view>
     </view>
@@ -45,8 +45,8 @@
       <view class="stats-label">蓝球出现次数 (最近10期)</view>
       <view class="stats-balls">
         <view class="stat-ball" wx:for="{{blueStats}}" wx:key="num">
-          <view class="ball ball-gray">{{num < 10 ? '0' + num : num}}</view>
-          <view class="stat-count">{{count}}</view>
+          <view class="ball ball-blue">{{item.num < 10 ? '0' + item.num : item.num}}</view>
+          <view class="stat-count">{{item.count}}</view>
         </view>
       </view>
     </view>

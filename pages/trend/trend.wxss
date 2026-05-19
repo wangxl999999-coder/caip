@@ -149,3 +149,27 @@
   color: #e74c3c;
   font-weight: bold;
 }
+
+.stat-ball .ball-red {
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: bold;
+}
+
+.stat-ball .ball-blue {
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: bold;
+}
